@@ -11,5 +11,4 @@ public class KataAccountApplication {
     public static void main(String[] args) {
         SpringApplication.run(KataAccountApplication.class, args);
     }
-
 }

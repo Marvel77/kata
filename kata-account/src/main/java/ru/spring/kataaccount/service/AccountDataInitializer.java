@@ -1,5 +1,8 @@
 package ru.spring.kataaccount.service;
 
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+import javax.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -7,10 +10,6 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 import ru.spring.kataaccount.dao.AccountDao;
 import ru.spring.kataaccount.model.Account;
-
-import javax.annotation.PostConstruct;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 @Component
 @Slf4j
@@ -22,7 +21,7 @@ public class AccountDataInitializer {
     @Value("${kata.account.amount:100}")
     private int accountAmount;
 
-    @Value("${kata.account.amount:1000}")
+    @Value("${kata.account.default-balance:1000}")
     private long accountDefaultBalance;
 
     @Async
@@ -42,7 +41,7 @@ public class AccountDataInitializer {
 
         } else {
             log.info(
-                    "Not necessary to create init data accounts, because it is already with amount '{}'.",
+                    "Not necessary to create init data accounts, already in database: '{}'.",
                     count);
         }
     }

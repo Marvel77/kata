@@ -13,5 +13,4 @@ public class KataAccountApplicationTests {
     public void contextLoads() {
         // nothing to put here - just context load testing
     }
-
 }

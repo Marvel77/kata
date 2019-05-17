@@ -1,6 +1,10 @@
+import com.github.sherter.googlejavaformatgradleplugin.GoogleJavaFormat
+import com.github.sherter.googlejavaformatgradleplugin.VerifyGoogleJavaFormat
+
 plugins {
     id 'org.springframework.boot' version '2.1.5.RELEASE'
     id 'java'
+    id 'com.github.sherter.google-java-format' version '0.8'
 }
 
 bootJar.enabled = false
@@ -14,6 +18,11 @@ configurations {
         extendsFrom annotationProcessor
     }
 }
+
+googleJavaFormat {
+    options style: 'AOSP'
+}
+
 
 allprojects {
     repositories {
@@ -40,3 +49,15 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
+task format(type: GoogleJavaFormat) {
+    source '**/src/main'
+    source '**/src/test'
+    include '**/*.java'
+    exclude '**/*Template.java'
+}
+
+task verifyFormatting(type: VerifyGoogleJavaFormat) {
+    source '**/src/main'
+    include '**/*.java'
+    ignoreFailures true
+}

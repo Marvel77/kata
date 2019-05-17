@@ -5,6 +5,4 @@ import org.springframework.stereotype.Repository;
 import ru.spring.kataaccount.model.Account;
 
 @Repository
-public interface AccountDao extends JpaRepository<Account, Long> {
-
-}
+public interface AccountDao extends JpaRepository<Account, Long> {}
