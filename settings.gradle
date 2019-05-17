@@ -1,0 +1,13 @@
+pluginManagement {
+    repositories {
+        maven {
+            name 'NSPK Nexus 3 maven proxy'
+            url "http://msk1-cnex001.unix.nspk.ru/repository/all-maven-proxy/"
+        }
+        gradlePluginPortal()
+    }
+}
+rootProject.name = 'kata'
+
+include 'kata-account'
+include 'kata-tos'
