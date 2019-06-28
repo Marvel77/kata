@@ -59,5 +59,5 @@ task format(type: GoogleJavaFormat) {
 task verifyFormatting(type: VerifyGoogleJavaFormat) {
     source '**/src/main'
     include '**/*.java'
-    ignoreFailures true
+    ignoreFailures false
 }

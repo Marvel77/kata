@@ -9,5 +9,6 @@ pluginManagement {
 }
 rootProject.name = 'kata'
 
+include 'common'
 include 'kata-account'
 include 'kata-tos'
